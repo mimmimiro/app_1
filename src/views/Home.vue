@@ -53,6 +53,7 @@
 	  },
 	 data() {
 		return {
+			error:'',
 			 recipes: [],
 			 image: '',
 			 url:'',
@@ -75,12 +76,27 @@
 	  methods: {
 		async fetchRecipe() {
       const url = 'https://www.themealdb.com/api/json/v1/1/random.php';
-		const res = await fetch(url); 
-		const { meals }  = await res.json();
-		this.recipes = meals;
-		this.image = meals[0].strMealThumb
-		this.url = meals[0].strYoutube
-		this.urlSource = meals[0].strSource
+		const response = await fetch(url); 
+		try {
+			await this.handleResponse(response)
+		} catch(error) {
+			console.log(error)
+			this.error = error;
+		}
+		},
+		async handleResponse(response) {
+			if(response.status >= 200 && response.status < 300)  {
+				console.log('alt ok');
+				const { meals }  = await response.json();
+				this.recipes = meals;
+				this.image = meals[0].strMealThumb
+				this.url = meals[0].strYoutube
+				this.urlSource = meals[0].strSource
+				return true;
+				} else {
+					throw new Error ('noe gikk galt')
+				}
+		
 	   },
    },
 }
