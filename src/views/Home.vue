@@ -1,17 +1,21 @@
 <template>
   <Header />
     <main class="container">
+		 <!-- error message apears, only if something goes wrong -->
+		 <div class="container__error">{{ error }}</div>
+
 	   <div v-for="recipe in recipes" :key="recipe.id">
         <div class="container__title">{{ recipe.strMeal}}</div>
           <div class="container__nathionality"><br> Nathionality:<br>{{ recipe.strArea }}</div>
           <div class="container__category"><br><br> Category: {{ recipe.strCategory}}</div>
           <div class="container__video"><a class="container__url" :href=url role="button">Video tutorial</a></div>
           <!-- <div class="container__source"><a :href=urlSource role="button"></a>link</div> -->
-          <img class="container__image" :src=image>
+          <img class="container__image" :src=image alt="meal-image">
           <div class="container__description">DESCRIPTION:<br>
 	       {{ recipe.strInstructions}}</div>
+			 
+			 <!-- the ingredients apear when clicked fetch recipe button -->
 	    <button class="container__button" @click="isRecipesVisible =!isRecipesVisible">Show ingredients</button>
-	  
 	   <section v-if="isRecipesVisible === true">
 	     <ul class="container__list">
 		    <li class="container__title-list">Ingredients:</li>
@@ -53,7 +57,7 @@
 	  },
 	 data() {
 		return {
-			error:'',
+			 error:'',
 			 recipes: [],
 			 image: '',
 			 url:'',
@@ -93,10 +97,15 @@
 				this.url = meals[0].strYoutube
 				this.urlSource = meals[0].strSource
 				return true;
-				} else {
-					throw new Error ('noe gikk galt')
+			} else {
+				if(response.status === 404) {
+					throw new Error('Url is not right');
 				}
-		
+				if(response.status === 404) {
+					throw new Error('server not working!');
+				}
+				} 
+				throw new Error ('oh, no! something went wrong')
 	   },
    },
 }
