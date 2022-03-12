@@ -90,7 +90,7 @@
 		},
 		async handleResponse(response) {
 			if(response.status >= 200 && response.status < 300)  {
-				console.log('alt ok');
+				console.log('it works');
 				const { meals }  = await response.json();
 				this.recipes = meals;
 				this.image = meals[0].strMealThumb
@@ -101,7 +101,7 @@
 				if(response.status === 404) {
 					throw new Error('Url is not right');
 				}
-				if(response.status === 404) {
+				if(response.status === 500) {
 					throw new Error('server not working!');
 				}
 				} 
