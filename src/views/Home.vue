@@ -16,6 +16,7 @@
 			 
 			 <!-- the ingredients apear when clicked fetch recipe button -->
 	    <button class="container__button" @click="isRecipesVisible =!isRecipesVisible">Show ingredients</button>
+		 	<transition>
 	   <section v-if="isRecipesVisible === true">
 	     <ul class="container__list">
 		    <li class="container__title-list">Ingredients:</li>
@@ -41,6 +42,7 @@
 		    <li class="container__list">{{ recipe.strIngredient20 }} {{ recipe.strMeasure20}}</li>
 	     </ul>
 		</section>
+		</transition>
        <button class="container__button" @click="fetchRecipe">Get a new recipe</button>
 		</div>
 	 </main>
@@ -234,6 +236,16 @@
    .container__url:hover {
 	   color: #c5a804;
    }
+
+	.v-enter-active,
+	.v-leave-active {
+		transition: opacity 0.4s ease;
+	}
+
+	.v-enter-from,
+	.v-leave-to {
+		opacity: 0;
+	}
 
    @media screen and (max-width: 1024px) {
 	  .container__title-list {
