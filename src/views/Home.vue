@@ -14,9 +14,10 @@
           <article class="container__description">DESCRIPTION:<br>
 	       {{ recipe.strInstructions}}</article>
 			 
-			 <!-- the ingredients apear when clicked fetch recipe button -->
-	    <button class="container__button" @click="isRecipesVisible =!isRecipesVisible">Show ingredients</button>
-		 	<transition>
+		 <!-- the buttons switches the list between hiding and showing -->
+		<button class="container__button" @click="showIngredients" v-if="!isRecipesVisible">Show Ingredients</button>
+      <button class="container__button" @click="hideIngredients" v-else>Hide Ingredients</button>
+	<transition>
 	   <section v-if="isRecipesVisible === true">
 	     <ul class="container__list">
 		    <li class="container__title-list">Ingredients:</li>
@@ -42,7 +43,7 @@
 		    <li class="container__list">{{ recipe.strIngredient20 }} {{ recipe.strMeasure20}}</li>
 	     </ul>
 		</section>
-		</transition>
+	</transition>
        <button class="container__button" @click="fetchRecipe">Get a new recipe</button>
 		</section>
 	 </main>
@@ -73,13 +74,21 @@
 				return false
 			}
 			else return true
-		}
-	},
-	  created() {
-       this.fetchRecipe();
-	},
-	  
+		 }
+		},
+
+	  	created() {
+       	this.fetchRecipe();
+		},
+
 	  methods: {
+		  showIngredients() {
+				this.isRecipesVisible = true;
+			},
+			hideIngredients() {
+				this.isRecipesVisible = false;
+			},
+
 		async fetchRecipe() {
       const url = 'https://www.themealdb.com/api/json/v1/1/random.php';
 		const response = await fetch(url); 
@@ -125,17 +134,18 @@
 	 background: rgb(240, 181, 133);
 	 box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
 	 color: #414903;
-	 width: 260px;
-	 height: 250px;
+	 width: 280px;
+	 height: 280px;
 	 margin: 60px;
 	 border-radius: 180px;
 	 text-align: center;
 	 padding-top: 15px;
-	 line-height: 2.2rem;
+	 line-height: 2.35rem;
 	 font-size: 1.7rem;
 	 position: absolute;
-	 top: 460px;
+	 top: 440px;
 	 right: 95px;
+	 letter-spacing: 0.05em;
   }
 
   .container__video {
@@ -170,6 +180,7 @@
 	 position: absolute;
 	 top: 250px;
 	 right: 30px;
+	 letter-spacing: 0.05em;
    }
 
   .container__url {
@@ -185,7 +196,7 @@
 
   .container__description {
 	 font-family: cursive;
-	 margin: 15px;
+	 margin: 10px 30px;
 	 line-height: 1.6;
 	 font-size: 1.1rem;
   }
@@ -211,11 +222,12 @@
       background-color: rgb(240, 181, 133);
       color: #414903;
       border-radius: 5px;
-      width: 250px;
+      width: 230px;
       margin:  15px;
-      font-size: 1.6rem;
+      font-size: 1.3rem;
       box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
 		font-family: cursive;
+		letter-spacing: 0.05em;
    }
 
    .container__button:hover,
@@ -236,7 +248,7 @@
    .container__url:hover {
 	   color: #c5a804;
    }
-
+    /* animation added to ingredientlist, when hiding the list*/
 	.v-enter-active,
 	.v-leave-active {
 		transition: opacity 0.4s ease;
