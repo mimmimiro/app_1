@@ -47,7 +47,8 @@ export default {
 	.container__header__logo:hover {
 		transform: rotateZ(360deg);
 	}
-
+   
+	/* small and medium devices */
 	@media screen and (max-width: 1024px) {
 		.container__header__logo {
 			width: 25%;

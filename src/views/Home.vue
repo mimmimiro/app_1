@@ -258,7 +258,8 @@
 	.v-leave-to {
 		opacity: 0;
 	}
-
+   
+	/* small and medium devices */
    @media screen and (max-width: 1024px) {
 	  .container__title-list {
 		  margin-left: 0px;
