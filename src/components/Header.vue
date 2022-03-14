@@ -1,10 +1,10 @@
 <template>
-<section class="container">
-	<header class="container__header">
-<img class="container__header__logo" src="/images/logo.png" alt="app-logo">
+	<section class="container">
+		<header class="container__header">
+			<img class="container__header__logo" src="/images/logo.png" alt="app-logo">
 
-</header>
-</section>
+	</header>
+	</section>
 </template>
 
 <script>

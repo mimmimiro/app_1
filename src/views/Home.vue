@@ -4,15 +4,15 @@
 		 <!-- error message apears, only if something goes wrong -->
 		 <div class="container__error">{{ error }}</div>
 
-	   <div v-for="recipe in recipes" :key="recipe.id">
+	   <section v-for="recipe in recipes" :key="recipe.id">
         <div class="container__title">{{ recipe.strMeal}}</div>
           <div class="container__nathionality"><br> Nathionality:<br>{{ recipe.strArea }}</div>
           <div class="container__category"><br><br> Category: {{ recipe.strCategory}}</div>
           <div class="container__video"><a class="container__url" :href=url role="button">Video tutorial</a></div>
           <!-- <div class="container__source"><a :href=urlSource role="button"></a>link</div> -->
           <img class="container__image" :src=image alt="meal-image">
-          <div class="container__description">DESCRIPTION:<br>
-	       {{ recipe.strInstructions}}</div>
+          <article class="container__description">DESCRIPTION:<br>
+	       {{ recipe.strInstructions}}</article>
 			 
 			 <!-- the ingredients apear when clicked fetch recipe button -->
 	    <button class="container__button" @click="isRecipesVisible =!isRecipesVisible">Show ingredients</button>
@@ -44,7 +44,7 @@
 		</section>
 		</transition>
        <button class="container__button" @click="fetchRecipe">Get a new recipe</button>
-		</div>
+		</section>
 	 </main>
   <Footer />
 </template>
