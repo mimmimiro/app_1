@@ -18,6 +18,7 @@
 		<button class="container__button" @click="showIngredients" v-if="!isRecipesVisible">Show Ingredients</button>
       <button class="container__button" @click="hideIngredients" v-else>Hide Ingredients</button>
 	<transition>
+		<!-- this part is hidden, until the button is clicked -->
 	   <section v-if="isRecipesVisible === true">
 	     <ul class="container__list">
 		    <li class="container__title-list">Ingredients:</li>
@@ -68,6 +69,7 @@
 			 isRecipesVisible: false
 		}
 	},
+	//   THis toggles the visibility of the ingredients
 	  computed: {
 		 toggle() {
 			if(this.isRecipesVisible) {
@@ -88,12 +90,16 @@
 			hideIngredients() {
 				this.isRecipesVisible = false;
 			},
-
+      //  an asynchronous HTTP request in JavaScript/vue with the deconstructed fetch method
+		// it offers an eloquent way to establish agile communication between client and server.
+		// fetch returns a promise, wich allows us to handle the asynchronous request in a smarter way
 		async fetchRecipe() {
       const url = 'https://www.themealdb.com/api/json/v1/1/random.php';
 		const response = await fetch(url); 
 		try {
 			await this.handleResponse(response)
+
+			// The catch() function is only used if fetch() could not send a request. This typically means that there was an error
 		} catch(error) {
 			console.log(error)
 			this.error = error;
