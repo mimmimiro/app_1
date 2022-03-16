@@ -28,7 +28,7 @@ export default {
 
 	.container__header {
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-		background-color: #80a08a; 
+		background-color: #a8ceb4; 
 		grid-column: 1/ span 12;
 		display: grid;
 		height: 210px;

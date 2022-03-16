@@ -27,7 +27,7 @@
 	.container__footer {
 		display: grid;
 		grid-column: 1/ span 12;
-		background-color: #80a08a; 
+		background-color: #9ec2a9; 
 		height: 100px;
 	}
 
