@@ -42,6 +42,7 @@ export default {
 		padding: 0px 0px 0px 0px;
 		grid-column: 1/ span 4;
 		grid-row: 1;
+		margin-left: 20px;
 	}
 
 	.container__header__logo:hover {

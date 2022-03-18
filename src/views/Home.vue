@@ -195,7 +195,7 @@
   }
 
   .container__image {
-    margin: 15px 5px 10px 310px; 
+    margin: 15px 5px 10px 350px; 
 	 width: 450px;
 	 height: 450px;
   }
@@ -267,12 +267,9 @@
    
 	/* small and medium devices */
    @media screen and (max-width: 1024px) {
-	  .container__title-list {
-		  margin-left: 0px;
-	   }
-
+	 
 	  .container__image {
-		  margin: 15px;
+		  margin: 55px 15px 0px 15px;
 		  width: 690px;
 		  height: 700px;
 	   }
