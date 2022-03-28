@@ -195,7 +195,7 @@
   }
 
   .container__image {
-    margin: 15px 5px 10px 350px; 
+    margin: 15px 5px 10px 310px; 
 	 width: 450px;
 	 height: 450px;
   }
