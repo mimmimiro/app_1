@@ -149,8 +149,8 @@
 	 line-height: 2.35rem;
 	 font-size: 1.7rem;
 	 position: absolute;
-	 top: 440px;
-	 right: 95px;
+	 top: 430px;
+	 right: 90px;
 	 letter-spacing: 0.05em;
   }
 
@@ -168,7 +168,7 @@
 	 font-size: 1.5rem;
 	 position: absolute;
 	 top: 545px;
-	 right: 320px;
+	 right: 310px;
   }
 
   .container__nathionality {
