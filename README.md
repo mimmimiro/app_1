@@ -1,2 +1,1 @@
-Run npm install before start coding.
-Run npm run dev to diplay application on browser.
+Daily food-app, made with rest API
